@@ -1,0 +1,20 @@
+{
+  "name": "new_personal_website",
+  "version": "1.0.0",
+  "description": "Trying to explore different front end technologies and options to grow my experience and expand my skillset.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "react-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/fiber": "^8.15.11",
+    "@types/three": "^0.158.3",
+    "nodemon": "^3.0.1",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.19.0",
+"react-scripts": "^5.0.1",
+    "three": "^0.158.0"
+  }
+}
