@@ -21,6 +21,7 @@ const mouse = {
   x: null,
   y: null,
 };
+//                      mouse move
 canvas.addEventListener('click', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;

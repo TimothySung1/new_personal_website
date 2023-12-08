@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
-import fs from 'fs';
 
 function main() {
   const canvas = document.querySelector("#c");
@@ -8,7 +7,7 @@ function main() {
   const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
   // font, size, height, curveSegments, bevelEnabled, bevelThickness, bevelSize, bevelOffset, bevelSegments
   const geometry = new TextGeometry( 'Welcome to my website!', {
-    font: JSON.parse(fs.readFileSync('./fonts/typefacejsons/Play_Regular.json')),
+    font: null,
   });
 
   const material = new THREE.MeshPhongMaterial({color: 0x123456});
@@ -19,4 +18,4 @@ function main() {
   renderer.render(scene, camera);
 }
 
-main();
+// main();
