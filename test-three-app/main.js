@@ -174,7 +174,7 @@ function waveSystem() {
   requestAnimationFrame(animate);
 }
 
-// waveSystem();
+waveSystem();
 
 function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
@@ -257,7 +257,7 @@ function dashedLines() {
   requestAnimationFrame(animate);
 }
 
-dashedLines();
+// dashedLines();
 
 function getLines() {
   const lineCount = 1;
