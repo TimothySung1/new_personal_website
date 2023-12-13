@@ -2,12 +2,14 @@
 * Tree to represent 2D space
 */
 export default class QuadTree {
-  #regionLength = 2;
+  #regionLength;
   // starting x and y coordinates with range of width and height
-  constructor(startX, startY, length) {
+  constructor(startX, startY, length, regionLength) {
     this.startX = startX;
     this.startY = startY;
     this.length = length;
+    this.#regionLength = regionLength ?? 2;
+    this.numRegions = (length / this.#regionLength) ** 2;
     this.root = new QuadTreeNode();
   }
 
@@ -130,6 +132,21 @@ export default class QuadTree {
 
   calc(x, y) {
     return this.#calculateQuadrants(x, y);
+  }
+
+  getRegion(index) {
+    
+  }
+
+  getRegions() {
+    const res = [];
+    this.#getRegionsHelper(res, this.root);
+  }
+
+  #getRegionsHelper(res, cur) {
+    if (cur.values) {
+      
+    }
   }
 }
 
