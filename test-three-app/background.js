@@ -11,6 +11,11 @@ scrolling down changes camera perspective
 add rotating object or something new
 */
 
+/*
+IDEA: Make first half second (moment) just a bouncing ball (with trail)
+Then, expand the particles to their spot while fading front page into view (on top of particles)
+*/
+
 // default setup
 const canvas = document.querySelector('#welcome-canvas');
 const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
