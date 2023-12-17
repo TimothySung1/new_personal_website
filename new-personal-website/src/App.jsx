@@ -72,12 +72,21 @@ function DownArrow() {
 
 export function InfoSection({title, bulletPoints}) {
   return (
-    <>
-      <div className='flex flex-row'>
+    <div className='absolute min-w-min '>
+      <div className='flex flex-row mt-40 ml-28 basis-0 shrink-0'>
         <p className='text-light-neon-green'>{title}</p>
-        <hr className='text-mid-dark-green' />
       </div>
-    </>
+      <div className='w-3/5 fixed right-28 px-8 -mt-3'>
+        <hr className='text-mid-dark-green w-auto -mr-8 -ml-8' />
+        {bulletPoints.map((e, i) => {
+          return (
+            <p key={i} className='mt-4'>
+              {e}
+            </p>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
