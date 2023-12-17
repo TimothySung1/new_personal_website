@@ -1,4 +1,5 @@
 import './App.css'
+import PropTypes from 'prop-types';
 
 function App() {
   return (
@@ -78,6 +79,11 @@ export function InfoSection({title, bulletPoints}) {
       </div>
     </>
   );
+}
+
+InfoSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  bulletPoints: PropTypes.array,
 }
 
 export default App
