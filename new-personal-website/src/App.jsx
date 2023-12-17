@@ -60,13 +60,24 @@ function ScrollHelper() {
 
 function DownArrow() {
   return (
-    <div>
+    <div className='animate-bounce'>
       <div className='flex flex-row mb-2'>
         <hr className='text-white/50 rotate-45 w-6' />
         <hr className='text-white/50 -rotate-45 w-6 -ml-2' />
       </div>
     </div>
   )
+}
+
+export function InfoSection({title, bulletPoints}) {
+  return (
+    <>
+      <div className='flex flex-row'>
+        <p className='text-light-neon-green'>{title}</p>
+        <hr className='text-mid-dark-green' />
+      </div>
+    </>
+  );
 }
 
 export default App
