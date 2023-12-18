@@ -70,17 +70,61 @@ function DownArrow() {
   )
 }
 
+export function BulletPoint({text}) {
+  return (
+    <div className='flex flex-row mt-4'>
+      <div className='flex flex-col mt-1.5'>
+        <hr className='text-white/50 rotate-35 w-4' />
+        <hr className='text-white/50 -rotate-35 w-4 mt-2' />
+      </div>
+      <p className='text-white ml-3'>
+        {text}
+      </p>
+    </div>
+  )
+}
+BulletPoint.propTypes = {
+  text: PropTypes.string.isRequired,
+}
+
 export function InfoSection({title, bulletPoints}) {
   return (
-    <div className='absolute min-w-min '>
-      <div className='flex flex-row mt-40 ml-28 basis-0 shrink-0'>
-        <p className='text-light-neon-green'>{title}</p>
+    <div className='absolute w-3/5 left-1/2 -translate-x-1/2 mt-40'>
+      <div className='flex flex-row'>
+        <p className='text-light-neon-green shrink-0 mr-8 text-xl'>{title}</p>
+        <div className='mt-4'>
+          <hr className='text-mid-dark-green w-auto -ml-2 -mr-2' />
+          {bulletPoints.map((e, i) => {
+            return (
+              <BulletPoint key={i} text={e} className='mt-4 text-white'>
+                {e}
+              </BulletPoint>
+            );
+          })}
+        </div>
       </div>
-      <div className='w-3/5 fixed right-28 px-8 -mt-3'>
+    </div>
+  );
+}
+
+InfoSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  bulletPoints: PropTypes.array.isRequired,
+}
+
+export default App
+
+
+/*
+export function InfoSection({title, bulletPoints}) {
+  return (
+    <div className='absolute w-3/5 left-1/2 -translate-x-1/2 mt-40'>
+      <p className='text-light-neon-green'>{title}</p>
+      <div className=''>
         <hr className='text-mid-dark-green w-auto -mr-8 -ml-8' />
         {bulletPoints.map((e, i) => {
           return (
-            <p key={i} className='mt-4'>
+            <p key={i} className='mt-4 text-white'>
               {e}
             </p>
           );
@@ -89,10 +133,4 @@ export function InfoSection({title, bulletPoints}) {
     </div>
   );
 }
-
-InfoSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  bulletPoints: PropTypes.array,
-}
-
-export default App
+*/

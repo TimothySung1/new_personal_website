@@ -1,5 +1,5 @@
 import '../App.css';
-import { InfoSection } from '../App';
+import { InfoSection, BulletPoint } from '../App';
 
 export default function Test() {
   return (
@@ -11,6 +11,7 @@ export default function Test() {
           'Click <link>here</link> to learn more.'
         ]
       } />
+      {/* <BulletPoint text="testing bp soeifjosdijfosidjfoisjdoijsdoifjosdijfosd"/> */}
     </div>
   );
 }
