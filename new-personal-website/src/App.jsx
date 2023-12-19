@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import './App.css'
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 function App() {
   return (
@@ -9,13 +11,14 @@ function App() {
         <Picture />
       </div>
       <ScrollHelper />
+      <MainContent />
     </>
   )
 }
 
 function Title() {
   return (
-    <div className='w-2/5 h-3/5 ml-24 mt-40 flex flex-col'>
+    <div className='w-2/5 h-3/5 ml-24 mt-24 flex flex-col'>
       <p className="text-5xl text-white mb-8">
       Hello 👋, <br />
       my name is Timothy Sung. <br />
@@ -48,8 +51,14 @@ function Picture() {
 }
 
 function ScrollHelper() {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const helper = document.getElementById('scroll-helper');
+      helper.classList.add('opacity-0');
+    }, {once: true});
+  }, []);
   return (
-    <div className='flex flex-col absolute bottom-6 left-1/2 -translate-x-1/2 items-center'>
+    <div className='transition-opacity flex flex-col absolute bottom-6 left-1/2 -translate-x-1/2 items-center' id='scroll-helper'>
       <p className='text-white/70 text-center mb-3'>
         -Scroll down-
       </p>
@@ -84,21 +93,20 @@ export function BulletPoint({text}) {
   )
 }
 BulletPoint.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
-export function InfoSection({title, bulletPoints}) {
+export function InfoSection({title, bulletPoints, options}) {
+  if (typeof options === 'undefined') options = {mt: false};
   return (
-    <div className='absolute w-3/5 left-1/2 -translate-x-1/2 mt-40'>
+    <div className={'w-3/5 mx-auto ' + (options.mt ? 'mt-80' : 'mt-40')}>
       <div className='flex flex-row'>
         <p className='text-light-neon-green shrink-0 mr-8 text-xl'>{title}</p>
         <div className='mt-4'>
           <hr className='text-mid-dark-green w-auto -ml-2 -mr-2' />
           {bulletPoints.map((e, i) => {
             return (
-              <BulletPoint key={i} text={e} className='mt-4 text-white'>
-                {e}
-              </BulletPoint>
+              <BulletPoint key={i} text={e} className='mt-4 text-white' />
             );
           })}
         </div>
@@ -110,6 +118,34 @@ export function InfoSection({title, bulletPoints}) {
 InfoSection.propTypes = {
   title: PropTypes.string.isRequired,
   bulletPoints: PropTypes.array.isRequired,
+  options: PropTypes.object,
+}
+
+function MainContent() {
+  return (
+    <>
+      <InfoSection options={{mt: true}} title="A little bit about me" bulletPoints={
+        [
+          'I currently live in Georgia and attend the Georgia Institute of Technology to pursue a Bachelor’s (and maybe a Master’s) degree in Computer Science.',
+          'I enjoy learning new things and applying them to create meaningful applications.',
+          ['Click ', <Link to='/about-me' className='font-bold'>here</Link>, ' to learn more.'],
+        ]
+      } />
+      <InfoSection title="Projects I have worked on" bulletPoints={
+        [
+          'I am familiar with Java, Python, JavaScript and have worked on several projects, from web back-end, desktop applications, and AI/ChatGPT programs.',
+          'These include an event planning website, a multithreaded image processing program, and an automatic Python code commenter.',
+          ['Check out the ', <Link to='/projects' className='font-bold'>Projects</Link>, ' tab for more information'],
+        ]
+      } />
+      <InfoSection title='Hobbies I enjoy' bulletPoints={
+        [
+          'I love playing games, whether it’s a farming simulator or a competitive team game. Although my free time is shortening every day, I make sure to have a nice balance between work and having fun.',
+          'I also regularly go to the gym. I like to make sure that I am mentally and physically healthy. Especially when I’m on the computer almost all day, I always make time to go outside or exercise.',
+        ]
+      } />
+    </>
+  );
 }
 
 export default App
