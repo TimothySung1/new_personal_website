@@ -20,6 +20,13 @@ export default {
       margin: {
         '.5': '0.125rem',
         '1.5': '0.375rem',
+      },
+      height: {
+        '98vh': '98vh',
+      },
+      transitionProperty: {
+        'width': 'width',
+        'height': 'height',
       }
     },
   },

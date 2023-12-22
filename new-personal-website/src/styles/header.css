@@ -1,0 +1,15 @@
+.hr0 {
+  @apply w-0 mx-auto duration-200 transition-width text-light-neon-green
+}
+
+.hr1 {
+  @apply mt-1 w-0 mx-auto duration-300 transition-width text-neon-green
+}
+
+.hovered0 {
+  width: 100%;
+}
+
+.hovered1 {
+  width: 80%;
+}
