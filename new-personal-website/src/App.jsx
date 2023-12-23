@@ -3,6 +3,9 @@ import './App.css'
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
+// TODO: make info sections wider spaced, and make text larger
+// TODO: add threejs stuff
+
 function App() {
   return (
     <>
@@ -45,7 +48,9 @@ function Picture() {
       <p className='text-white/70 self-center text-xl'>
         Anything you want to talk about?
       </p>
-      <p className='font-bold text-white self-center text-xl'>Contact me</p>
+      <Link to='/contact-me'>
+        <p className='font-bold text-white self-center text-xl'>Contact me</p>
+      </Link>
     </div>
   );
 }

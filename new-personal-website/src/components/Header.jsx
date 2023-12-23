@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import '../styles/header.css';
 
+// TODO: make header fixed, but only appear if mouse goes towards the top
+
 function Header() {
   const titles = ['Home', 'About', 'Projects', 'Hobbies', 'Contact Me'];
   return (
