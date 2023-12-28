@@ -3,8 +3,9 @@ import './App.css'
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-// TODO: make info sections wider spaced, and make text larger
+// TODO: make info sections wider (vertically) spaced, and make text larger
 // TODO: add threejs stuff
+// for about me, when mouse hover name or gt, make particles form the words or my image (is this possible?)
 
 function App() {
   return (

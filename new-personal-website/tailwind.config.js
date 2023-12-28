@@ -23,6 +23,10 @@ export default {
       },
       height: {
         '98vh': '98vh',
+        '100vh': '100vh',
+      },
+      width: {
+        '100vw': '100vw',
       },
       transitionProperty: {
         'width': 'width',
