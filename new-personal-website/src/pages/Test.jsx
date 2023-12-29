@@ -8,13 +8,13 @@ export default function Test() {
   return (
     <div>
       <MainCanvas />
+      {/* <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
       <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
       <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
       <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
       <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
       <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
-      <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
-      <p className='mt-96 mb-96 pointer-events-none'>scrolling</p>
+      <p className='mt-96 mb-96 pointer-events-none'>scrolling</p> */}
     </div>
   );
 }
