@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './App.css'
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import MainCanvas from './components/MainCanvas';
+import Loading from './components/Loading';
 
 // TODO: make info sections wider (vertically) spaced, and make text larger
 // TODO: add threejs stuff
@@ -10,6 +12,8 @@ import { useEffect } from 'react';
 function App() {
   return (
     <>
+      <Loading />
+      <MainCanvas />
       <div className='flex flex-row justify-around items-center h-98vh'>
         <Title />
         <Picture />
@@ -43,14 +47,14 @@ function Title() {
 function Picture() {
   return (
     <div className='flex flex-col'>
-      <div className='bg-white h-80 w-80 rounded-full self-center'>
-        temporary
+      <div className='bg-white h-80 w-80 rounded-full self-center mb-4'>
+        <p className='self-center text-center'>temporary</p>
       </div>
       <p className='text-white/70 self-center text-xl'>
         Anything you want to talk about?
       </p>
       <Link to='/contact-me'>
-        <p className='font-bold text-white self-center text-xl'>Contact me</p>
+        <p className='font-bold text-white self-center text-center text-xl'>Contact me</p>
       </Link>
     </div>
   );
@@ -103,9 +107,9 @@ BulletPoint.propTypes = {
 }
 
 export function InfoSection({title, bulletPoints, options}) {
-  if (typeof options === 'undefined') options = {mt: false};
+  if (typeof options === 'undefined') options = {mt: false, mb: false};
   return (
-      <div className={'flex flex-row w-3/5 mx-auto ' + (options.mt ? 'mt-60' : 'mt-40')}>
+      <div className={'flex flex-row w-3/5 mx-auto ' + (options.mt ? 'mt-60' : 'mt-40') + (!!options.mb ? ' mb-40' : '')}>
         <p className='text-light-neon-green shrink-0 mr-8 text-xl'>{title}</p>
         <div className='mt-4'>
           <hr className='text-mid-dark-green w-auto -ml-2 -mr-2' />
@@ -128,7 +132,7 @@ InfoSection.propTypes = {
 function MainContent() {
   return (
     <>
-      <InfoSection options={{mt: true}} title="A little bit about me" bulletPoints={
+      <InfoSection options={{ mt: true }} title="A little bit about me" bulletPoints={
         [
           'I currently live in Georgia and attend the Georgia Institute of Technology to pursue a Bachelor’s (and maybe a Master’s) degree in Computer Science.',
           'I enjoy learning new things and applying them to create meaningful applications.',
@@ -142,7 +146,7 @@ function MainContent() {
           ['Check out the ', <Link to='/projects' className='font-bold' key='projects-link'>Projects</Link>, ' tab for more information'],
         ]
       } />
-      <InfoSection title='Hobbies I enjoy' bulletPoints={
+      <InfoSection options={{ mb: true }}title='Hobbies I enjoy' bulletPoints={
         [
           'I love playing games, whether it’s a farming simulator or a competitive team game. Although my free time is shortening every day, I make sure to have a nice balance between work and having fun.',
           'I also regularly go to the gym. I like to make sure that I am mentally and physically healthy. Especially when I’m on the computer almost all day, I always make time to go outside or exercise.',

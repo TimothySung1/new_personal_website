@@ -31,7 +31,22 @@ export default {
       transitionProperty: {
         'width': 'width',
         'height': 'height',
-      }
+      },
+      animation: {
+        ballbounce: 'ballbounce 1.5s ease-in-out infinite',
+        fadeout: 'fadeout 1s ease-out 0.8s 1 forwards',
+        loadingball: 'ballbounce 1.5s ease-in-out infinite, fadeout 1.5s ease-out 1 forwards'
+      },
+      keyframes: {
+        ballbounce: {
+          // '0%': { transform: 'translate(-20px)'},
+          '20%': { transform: 'translate(0, -30px)' },
+          '40%': { transform: 'translate(0, 0)' },
+        },
+        fadeout: {
+          '100%': { opacity: '0' },
+        }
+      },
     },
   },
   plugins: [],

@@ -52,7 +52,7 @@ function ParticleSystem() {
       for (let i = 0; i < widthDivisions; i++) {
         const x = i * gap + xOffset;
         const y = j * gap + yOffset;
-        const ns = Noise.current.noise(i * noisegap / 3, j * noisegap / 3, time.current / 5);
+        const ns = Noise.current.noise(i * noisegap / 3, j * noisegap / 3, time.current / 6);
         const z = ns;
         // const r = lerp(0x42, 0x00, ns);
         // const g = lerp(0x42, 0xE5, ns);
