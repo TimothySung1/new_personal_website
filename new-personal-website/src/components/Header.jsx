@@ -7,7 +7,7 @@ import '../styles/header.css';
 function Header() {
   const titles = ['Home', 'About', 'Projects', 'Hobbies', 'Contact Me'];
   return (
-    <div className="absolute top-8 right-8">
+    <div className="absolute top-8 right-12">
       {titles.map((title, i) => 
         <HeaderButton key={i} index={i} text={title} link={title.toLowerCase().replaceAll(' ', '-')}/>
       )}
@@ -47,7 +47,7 @@ HeaderButton.propTypes = {
 function ResumeButton() {
   return (
     <Link to='/resume.pdf' target="_blank">
-      <div className="inline-block mr-14 border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
+      <div className="inline-block border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
         <p className="text-2xl">Resume</p>
       </div>
     </Link>

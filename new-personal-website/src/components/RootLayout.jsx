@@ -4,11 +4,13 @@ import Header from './Header';
 
 function RootLayout() {
   return (
-    <>
+    <div className='min-h-screen flex flex-col'>
       <Header />
-      <Outlet />
+      <div className='pb-20'>
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   )
 }
 
