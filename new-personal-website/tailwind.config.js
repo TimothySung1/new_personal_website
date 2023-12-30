@@ -27,6 +27,7 @@ export default {
       },
       width: {
         '100vw': '100vw',
+        '45%': '45%',
       },
       transitionProperty: {
         'width': 'width',

@@ -19,7 +19,7 @@ function Header() {
 function HeaderButton({text, link, index}) {
   return (
     <div className="inline-block mr-14 align-middle">
-      <Link to={link} onMouseOver={
+      <Link reloadDocument to={link} onMouseOver={
         () => {
           document.getElementById(index + '-0').classList.toggle('hovered0');
           document.getElementById(index + '-1').classList.toggle('hovered1');
@@ -46,7 +46,7 @@ HeaderButton.propTypes = {
 
 function ResumeButton() {
   return (
-    <Link to='/resume'>
+    <Link to='/resume.pdf' target="_blank">
       <div className="inline-block mr-14 border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
         <p className="text-2xl">Resume</p>
       </div>

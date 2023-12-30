@@ -53,7 +53,7 @@ function Picture() {
       <p className='text-white/70 self-center text-xl'>
         Anything you want to talk about?
       </p>
-      <Link to='/contact-me'>
+      <Link reloadDocument to='/contact-me'>
         <p className='font-bold text-white self-center text-center text-xl'>Contact me</p>
       </Link>
     </div>
@@ -136,14 +136,14 @@ function MainContent() {
         [
           'I currently live in Georgia and attend the Georgia Institute of Technology to pursue a Bachelor’s (and maybe a Master’s) degree in Computer Science.',
           'I enjoy learning new things and applying them to create meaningful applications.',
-          ['Click ', <Link to='/about-me' className='font-bold' key='here-link'>here</Link>, ' to learn more.'],
+          ['Click ', <Link reloadDocument to='/about' className='font-bold' key='here-link'>here</Link>, ' to learn more.'],
         ]
       } />
       <InfoSection title="Projects I have worked on" bulletPoints={
         [
           'I am familiar with Java, Python, JavaScript and have worked on several projects, from web back-end, desktop applications, and AI/ChatGPT programs.',
           'These include an event planning website, a multithreaded image processing program, and an automatic Python code commenter.',
-          ['Check out the ', <Link to='/projects' className='font-bold' key='projects-link'>Projects</Link>, ' tab for more information'],
+          ['Check out the ', <Link reloadDocument to='/projects' className='font-bold' key='projects-link'>Projects</Link>, ' tab for more information'],
         ]
       } />
       <InfoSection options={{ mb: true }}title='Hobbies I enjoy' bulletPoints={
