@@ -68,7 +68,7 @@ function ScrollHelper() {
     }, {once: true});
   }, []);
   return (
-    <div className='transition-opacity flex flex-col absolute bottom-6 left-1/2 -translate-x-1/2 items-center' id='scroll-helper'>
+    <div className='transition-opacity flex flex-col relative bottom-14 left-1/2 -translate-x-1/2 items-center' id='scroll-helper'>
       <p className='text-white/70 text-center mb-3'>
         -Scroll down-
       </p>
