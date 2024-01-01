@@ -1,6 +1,7 @@
 import Title from "../components/Title";
 import PropTypes from 'prop-types';
 import DownArrow from "../components/DownArrow";
+import { useState } from "react";
 
 function Projects() {
   return (
@@ -17,10 +18,17 @@ function Projects() {
 }
 
 function CardSection() {
+  const [index, setIndex] = useState(0);
+  const count = 5;
+
+  const setIndexHandler = (index) => {
+    setIndex(index);
+  }
+
   return (
     <div className="flex flex-col items-center mt-12">
-      <div className="rotate-180 mb-2">
-        <DownArrow />
+      <div className={"rotate-180 mb-2" + (index === 0 ? ' opacity-0 pointer-events-none' : '')}>
+        <DownArrow thick scale clickHandler={() => setIndexHandler(index - 1)} />
       </div>
       <div className="relative">
         <Card 
@@ -29,12 +37,12 @@ function CardSection() {
           url='https://github.com'
         />
         <div className="absolute top-1/2 -translate-y-1/2 -right-12">
-          <Dots count={5} index={0} />
+          <Dots count={count} index={index} setIndexHandler={setIndexHandler} />
         </div>
       </div>
       
-      <div className="mt-2">
-        <DownArrow />
+      <div className={"mt-2" + (index === count - 1 ? ' opacity-0 pointer-events-none' : '')}>
+        <DownArrow thick scale clickHandler={() => setIndexHandler(index + 1)} />
       </div>
     </div>
   )
@@ -43,8 +51,10 @@ function CardSection() {
 function Card({title, description, url}) {
   console.log(url);
   return (
-    <div className="w-[950px] h-[300px] border border-white rounded-xl mx-auto pt-4">
-      <p className="text-3xl text-light-neon-green ml-16 mt-6">{title}</p>
+    <div className="w-[950px] h-[325px] border border-white rounded-xl mx-auto pt-8">
+      <a href={url} className="text-3xl text-light-neon-green ml-16 hover:text-neon-green/80 transition">
+        {title}
+      </a>
       <hr className="mt-4 mx-8 border-none h-[2px] bg-mid-dark-green" />
       <p className="mt-6 mx-12 text-white/80">{description}</p>
     </div>
@@ -57,12 +67,14 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
 }
 
-function Dots({count, index}) {
+function Dots({count, index, setIndexHandler}) {
   return (
     <div className="ml-8 border-2 border-white rounded-full px-1">
       {
         new Array(count).fill(0).map((_, i) => 
-          <div key={i} className={"border border-white my-2 w-4 h-4 rounded-full " + (index === i ? ' bg-gray' : 'bg-white/70')}></div>
+          <div key={i} className={"cursor-pointer border border-white my-2 w-4 h-4 rounded-full " + (index === i ? ' bg-white/70' : 'bg-gray')}
+            onClick={() => setIndexHandler(i)}
+          ></div>
         )
       }
     </div>
@@ -72,6 +84,7 @@ function Dots({count, index}) {
 Dots.propTypes = {
   count: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
+  setIndexHandler: PropTypes.func.isRequired,
 }
 
 export default Projects;
