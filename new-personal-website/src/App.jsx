@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import MainCanvas from './components/MainCanvas';
 import Loading from './components/Loading';
+import DownArrow from './components/DownArrow';
 
 // TODO: make info sections wider (vertically) spaced, and make text larger
 // TODO: add threejs stuff
@@ -72,19 +73,8 @@ function ScrollHelper() {
       <p className='text-white/70 text-center mb-3'>
         -Scroll down-
       </p>
-      <DownArrow />
-      <DownArrow />
-    </div>
-  )
-}
-
-function DownArrow() {
-  return (
-    <div className='animate-bounce'>
-      <div className='flex flex-row mb-2'>
-        <hr className='text-white/50 rotate-45 w-6' />
-        <hr className='text-white/50 -rotate-45 w-6 -ml-2' />
-      </div>
+      <DownArrow animate />
+      <DownArrow animate />
     </div>
   )
 }
@@ -109,7 +99,7 @@ BulletPoint.propTypes = {
 export function InfoSection({title, bulletPoints, options}) {
   if (typeof options === 'undefined') options = {mt: false, mb: false};
   return (
-      <div className={'flex flex-row w-3/5 mx-auto ' + (options.mt ? 'mt-60' : 'mt-40') + (!!options.mb ? ' mb-40' : '')}>
+      <div className={'flex flex-row w-3/5 mx-auto ' + (options.mt ? 'mt-60' : 'mt-40') + (options.mb ? ' mb-40' : '')}>
         <p className='text-light-neon-green shrink-0 mr-8 text-xl'>{title}</p>
         <div className='mt-4'>
           <hr className='text-mid-dark-green w-auto -ml-2 -mr-2' />

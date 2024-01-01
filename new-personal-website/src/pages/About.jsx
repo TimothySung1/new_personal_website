@@ -1,11 +1,9 @@
-
+import Title from "../components/Title";
 
 function About() {
   return (
-    <div className="mb-20">
-      <div className="mt-32 mb-20">
-        <p className="text-white text-4xl ml-20">About me</p>
-      </div>
+    <div>
+      <Title text={'About me'}/>
       <div className="text-white text-xl w-45% ml-32">
         <p className="mb-4">
           Hello, my name is <span className="font-bold underline">Timothy Sung</span>, and I am a student at <span className="font-bold text-[#B3A369] underline">Georgia </span> <span className="font-bold text-[#1D4769] underline">Tech</span>.
