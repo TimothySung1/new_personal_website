@@ -33,8 +33,8 @@ function Title() {
       my name is Timothy Sung. <br />
       Welcome to my Website!
       </p>
-      <hr className='mb-2 border-dark-green'/>
-      <hr className='ml-4 mr-4 mb-8 border-dark-green'/>
+      <hr className='mb-2 border-dark-green shadow shadow-dark-green'/>
+      <hr className='ml-4 mr-4 mb-8 border-dark-green shadow shadow-dark-green'/>
       <p className='text-neon-green self-center mb-8 text-2xl'>
         Software Developer
       </p>
@@ -70,7 +70,7 @@ function ScrollHelper() {
   }, []);
   return (
     <div className='transition-opacity flex flex-col relative bottom-14 left-1/2 -translate-x-1/2 items-center' id='scroll-helper'>
-      <p className='text-white/70 text-center mb-3'>
+      <p className='text-white/70 text-center mb-2'>
         -Scroll down-
       </p>
       <DownArrow animate />
