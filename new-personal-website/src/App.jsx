@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import MainCanvas from './components/MainCanvas';
 import Loading from './components/Loading';
 import DownArrow from './components/DownArrow';
+import waving from './assets/waving.png';
 
 // TODO: make info sections wider (vertically) spaced, and make text larger
 // TODO: add threejs stuff
@@ -29,7 +30,7 @@ function Title() {
   return (
     <div className='w-2/5 flex flex-col'>
       <p className=" text-7xl text-white mb-8">
-      Hello 👋, <br />
+      Hello<img src={waving} alt="emoji" className='h-16 inline-block align-top ml-2' />, <br />
       my name is Timothy Sung. <br />
       Welcome to my Website!
       </p>
