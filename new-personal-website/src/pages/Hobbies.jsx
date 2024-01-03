@@ -1,11 +1,13 @@
+import Title from "../components/Title";
 
 
 function Hobbies() {
   return (
     <div>
-      a;sldkjalskdjfalskdjfalskdjf
-      asdkfa;lsdkjfasdf
-      <p>sdlfkjal;sdkfjsadf</p>
+      <Title text={'Hobbies'} />
+      <p className="text-white ml-32">
+        Currently a work in progress. Check back later :D
+      </p>
     </div>
   )
 }
