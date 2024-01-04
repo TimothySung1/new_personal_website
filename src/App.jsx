@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './App.css'
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MainCanvas from './components/MainCanvas';
 import Loading from './components/Loading';
 import DownArrow from './components/DownArrow';
@@ -12,10 +12,17 @@ import waving from './assets/waving.png';
 // for about me, when mouse hover name or gt, make particles form the words or my image (is this possible?)
 
 function App() {
+  const [showbg, setShowbg] = useState(false);
   return (
     <>
-      <Loading />
-      <MainCanvas />
+      <div className='absolute left-1/2 -translate-x-1/2 top-[54em] cursor-pointer' onClick={() => setShowbg(!showbg)}>
+        <input type="checkbox" className='inline-block align-middle bg-white border-none h-4 w-4 cursor-pointer' checked={showbg} />
+        <p className='inline-block text-neon-green font-bold ml-4 align-middle text-base select-none'>
+          Turn on 3D background
+        </p>
+      </div>
+      {showbg && <Loading />}
+      {showbg && <MainCanvas />}
       <div className='flex flex-row justify-around items-center h-98vh'>
         <Title />
         <Picture />

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 function Loading() {
   useEffect(() => {
     const loadingDiv = document.getElementById('loading');
-    setTimeout(() => loadingDiv.remove(), 2000);
+    setTimeout(() => loadingDiv.style.zIndex = -100, 2000);
   });
   return (
     <div className="w-100vw h-100vh fixed z-50 bg-dark-gray animate-fadeout" id={'loading'}>

@@ -35,7 +35,7 @@ export default {
       },
       animation: {
         ballbounce: 'ballbounce 1.5s ease-in-out infinite',
-        fadeout: 'fadeout 1s ease-out 0.8s 1 forwards',
+        fadeout: 'fadeout 0.6s ease-out 0.4s 1 forwards',
         loadingball: 'ballbounce 1.5s ease-in-out infinite, fadeout 1.5s ease-out 1 forwards'
       },
       keyframes: {
