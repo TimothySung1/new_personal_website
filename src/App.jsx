@@ -22,7 +22,7 @@ function App() {
         <Title />
         <Picture />
       </div>
-      <div className='cursor-pointer self-center absolute top-[16vh] -translate-y-1/2 sm:translate-y-0 lg:top-[80vh] left-1/2 -translate-x-1/2 w-[190px] sm:w-fit' onClick={() => setShowbg(!showbg)}>
+      <div className='cursor-pointer self-center absolute top-[16vh] -translate-y-1/2 sm:translate-y-0 lg:top-[80vh] left-1/2 lg:left-auto lg:right-1/4 -translate-x-1/2 lg:translate-x-0 w-[190px] sm:w-fit' onClick={() => setShowbg(!showbg)}>
         <input type="checkbox" className='inline-block align-middle bg-white border-none h-3 w-3 sm:h-4 sm:w-4 cursor-pointer' checked={showbg} readOnly />
         <p className='inline-block text-neon-green font-bold ml-4 align-middle text-sm sm:text-base select-none'>
           Turn on 3D background

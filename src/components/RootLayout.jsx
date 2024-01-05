@@ -6,7 +6,7 @@ function RootLayout() {
   return (
     <div className='min-h-screen flex flex-col'>
       <Header />
-      <div className='pb-20'>
+      <div className='pb-20 relative'>
         <Outlet />
       </div>
       <Footer />
