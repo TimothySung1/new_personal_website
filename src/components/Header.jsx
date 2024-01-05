@@ -7,7 +7,7 @@ import '../styles/header.css';
 function Header() {
   const titles = ['Home', 'About', 'Projects', 'Hobbies', 'Contact Me'];
   return (
-    <div className="absolute top-8 right-12">
+    <div className="absolute top-2 sm:top-8 sm:right-12 mx-2 flex flex-row flex-wrap justify-center items-center sm:block">
       {titles.map((title, i) => 
         <HeaderButton key={i} index={i} text={title} link={title.toLowerCase().replaceAll(' ', '-')}/>
       )}
@@ -18,7 +18,7 @@ function Header() {
 
 function HeaderButton({text, link, index}) {
   return (
-    <div className="inline-block mr-14 align-middle">
+    <div className="inline-block mr-6 lg:mr-14 align-middle sm:mt-0 mt-[6px]">
       <Link reloadDocument to={link} onMouseOver={
         () => {
           document.getElementById(index + '-0').classList.toggle('hovered0');
@@ -30,7 +30,7 @@ function HeaderButton({text, link, index}) {
           document.getElementById(index + '-1').classList.toggle('hovered1');
         }
       }>
-        <p className="text-2xl text-white">{text}</p>
+        <p className="text-base sm:text-xl lg:text-2xl text-white">{text}</p>
       </Link>
       <hr className="hr0" id={index + "-0"}/>
       <hr className="hr1" id={index + "-1"}/>
@@ -48,7 +48,7 @@ function ResumeButton() {
   return (
     <Link to='/resume.pdf' target="_blank">
       <div className="inline-block border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
-        <p className="text-2xl">Resume</p>
+        <p className="text-base sm:text-xl lg:text-2xl">Resume</p>
       </div>
     </Link>
   )
