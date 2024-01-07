@@ -5,9 +5,9 @@ import { useState } from "react";
 
 function Projects() {
   return (
-    <div>
+    <>
       <Title text={'Projects'} />
-      <div className="text-white text-xl ml-32 mb-32">
+      <div className="text-white text-xl mx-4 lg:ml-32 mb-32 lg:text-left text-center">
         <p>
           Here are some projects that I have worked on or am currently working on!
         </p>
@@ -16,7 +16,7 @@ function Projects() {
         </p>
       </div>
       <CardSection />
-    </div>
+    </>
   )
 }
 
@@ -26,11 +26,6 @@ function Projects() {
 // add date that I worked on them ?
 function CardSection() {
   const [index, setIndex] = useState(0);
-  // const prevIndex = useRef(1);
-  // const top = useRef(false);
-  // useEffect(() => {
-
-  // }, [index]);
 
   const setIndexHandler = (index) => {
     setIndex(index);
@@ -66,7 +61,7 @@ function CardSection() {
   const length = data.length;
 
   return (
-    <div className="flex flex-col items-center mt-12">
+    <div className="flex flex-col items-center mt-12 mb-20">
       <div className={"rotate-180 mb-2 transition-opacity duration-300" + (index === 0 ? ' opacity-0 pointer-events-none' : '')}>
         <DownArrow thick scale clickHandler={() => setIndexHandler(index - 1)} />
       </div>
@@ -85,7 +80,7 @@ function CardSection() {
           absolute
           transparent
         /> */}
-        <div className="absolute top-1/2 -translate-y-1/2 -right-12">
+        <div className="absolute top-1/2 -translate-y-1/2 lg:-right-12 -right-10">
           <Dots count={length} index={index} setIndexHandler={setIndexHandler} />
         </div>
       </div>
@@ -99,10 +94,13 @@ function CardSection() {
 
 function Card({title, description, url, transparent, absolute}) {
   return (
-    <div className={"transition-opacity duration-[350ms] w-[950px] h-[325px] border border-white rounded-xl mx-auto pt-8" + (absolute ? ' absolute top-0' : '') + (transparent ? ' opacity-0 pointer-events-none': '')}>
-      <a href={url} target="_blank" rel="noreferrer" className="text-3xl text-light-neon-green ml-16 hover:text-neon-green/80 transition">
-        {title}
-      </a>
+    <div className={"transition-opacity duration-[350ms] lg:w-[900px] sm:w-[560px] w-[360px] lg:h-[325px] h-fit border border-white rounded-xl mx-auto py-8 px-2 sm:px-4" + (absolute ? ' absolute top-0' : '') + (transparent ? ' opacity-0 pointer-events-none': '')}>
+      <div className="flex flex-row justify-center lg:block">
+        <a href={url} target="_blank" rel="noreferrer" className="lg:text-left text-center text-2xl lg:text-3xl text-light-neon-green mx-auto lg:ml-16 hover:text-neon-green/80 transition">
+          {title}
+        </a>
+      </div>
+      
       <hr className="mt-4 mx-8 border-none h-[2px] bg-mid-dark-green" />
       <p className="mt-6 mx-12 text-white/80">{description}</p>
     </div>
