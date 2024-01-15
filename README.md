@@ -4,4 +4,4 @@
 Trying to explore different front end technologies and options, so I can be a successful full-stack engineer.
 
 ## Branch
-This production branch contains the code for the website found here: https://timothysung.vercel.app/home.
+This development branch contains the code for my website but potentially with some experimental code/features.
