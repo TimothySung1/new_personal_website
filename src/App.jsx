@@ -23,7 +23,7 @@ function App() {
     <>
       {showbg && <Loading />}
       {showbg && <MainCanvas />}
-      <div className='flex flex-col lg:flex-row lg:mx-[10%] justify-between items-center lg:items-start lg:mt-72 sm:h-[120vh] h-auto lg:h-[100vh] lg:my-0 sm:mt-60 mt-[25vh]'>
+      <div className='flex flex-col lg:flex-row lg:mx-[10%] justify-between lg:items-start items-center h-auto lg:h-[100vh] lg:my-0 lg:mt-[max(23vh,100px)] sm:mt-60 mt-[25vh]'>
         <Title setShowbgHandler={setShowbgHandler} showbg={showbg} />
         <Picture />
       </div>
@@ -38,18 +38,18 @@ function App() {
 
 function Title({setShowbgHandler, showbg}) {
   return (
-    <div className='w-[65%] lg:w-[50%] flex flex-col'>
-      <p className="text-3xl sm:text-7xl text-white mb-8 lg:text-left text-center">
+    <div className='w-[65%] lg:w-[60%] flex flex-col'>
+      <p className="text-3xl sm:text-5xl text-white mb-8 lg:text-left text-center">
       Hello<img src={waving} alt="emoji" className='h-8 sm:h-16 inline-block align-top ml-2' />, <br />
       my name is Timothy Sung. <br />
       Welcome to my Website!
       </p>
       <hr className='mb-2 border-dark-green shadow shadow-dark-green'/>
       <hr className='ml-4 mr-4 mb-8 border-dark-green shadow shadow-dark-green'/>
-      <p className='text-neon-green self-center mb-8 text-lg sm:text-2xl'>
+      <p className='text-neon-green self-center mb-8 text-lg sm:text-xl'>
         Software Developer
       </p>
-      <p className='text-white/70 self-center text-base sm:text-xl text-center'>
+      <p className='text-white/70 self-center text-base sm:text-lg text-center'>
         I make Full Stack web applications and enjoy learning all things AI, cloud, or computer-related.
       </p>
       <div className='cursor-pointer w-[190px] sm:w-fit self-center mt-4' onClick={() => setShowbgHandler(!showbg)}>
@@ -70,14 +70,14 @@ Title.propTypes = {
 function Picture() {
   return (
     <div className='flex flex-col'>
-      <div className='bg-white h-60 w-60 sm:h-80 sm:w-80 rounded-full self-center mb-4 lg:mt-0 mt-20'>
+      <div className='bg-white h-60 w-60 sm:h-80 sm:w-80 rounded-full self-center -mb-4 lg:mt-0 mt-20 scale-75'>
         <img src={me} alt="My picture" className='h-[14.5em] sm:h-[19.5em] rounded-full m-auto my-1' />
       </div>
-      <p className='text-white/70 self-center text-base sm:text-xl'>
+      <p className='text-white/70 self-center text-base sm:text-lg'>
         Anything you want to talk about?
       </p>
       <Link reloadDocument to='/contact-me'>
-        <p className='font-bold text-white self-center text-center text-base sm:text-xl'>Contact me</p>
+        <p className='font-bold text-white self-center text-center text-base sm:text-lg'>Contact me</p>
       </Link>
     </div>
   );
@@ -92,11 +92,11 @@ function ScrollHelper() {
     }, {once: true});
   }, []);
   return (
-    <div className='transition-opacity flex flex-col left-1/2 -translate-x-1/2 items-center absolute top-[90vh] opacity-50' id='scroll-helper'>
-      <p className='text-white/70 text-center mb-2'>
+    <div className='transition-opacity flex flex-col left-1/2 -translate-x-1/2 items-center absolute top-[calc(90vh-24px)] opacity-50 bg-black bg-opacity-30 pb-4 px-2 rounded-md' id='scroll-helper'>
+      <p className='text-white/70 lg:text-base text-sm text-center mb-2'>
         -Scroll down-
       </p>
-      <div className='-mt-2'>
+      <div className='-mt-2 lg:scale-90 scale-75'>
         <DownArrow animate />
         <DownArrow animate />
       </div>
@@ -125,7 +125,7 @@ BulletPoint.propTypes = {
 export function InfoSection({title, bulletPoints, options}) {
   if (typeof options === 'undefined') options = {mt: false, mb: false};
   return (
-      <div className={'flex flex-row w-[95%] mx-4 sm:mx-auto lg:w-1/2 ' + (options.mt ? 'mt-60' : 'mt-40') + (options.mb ? ' mb-40' : '')}>
+      <div className={'flex flex-row w-[95%] mx-4 sm:mx-auto lg:w-1/2 ' + (options.mt ? 'mt-60 lg:mt-32' : 'mt-40') + (options.mb ? ' mb-40' : '')}>
         <p className='text-light-neon-green shrink-0 mr-8 text-base lg:text-xl'>{title}</p>
         <div className='mt-4'>
           <hr className='text-mid-dark-green w-full lg:w-auto -ml-2 -mr-2' />
@@ -151,7 +151,7 @@ function MainContent() {
       <InfoSection options={{ mt: true }} title="A little bit about me" bulletPoints={
         [
           'I currently live in Georgia and attend the Georgia Institute of Technology to pursue a Bachelor’s (and maybe a Master’s) degree in Computer Science.',
-          'I enjoy learning new things and applying them to create meaningful applications.',
+          'I enjoy learning new things and applying them to create meaningful applications. For example, prior to making this website, I had terrible design skills. Now, I have some decent experience with CSS and 3D rendering.',
           ['Click ', <Link reloadDocument to='/about' className='font-bold' key='here-link'>here</Link>, ' to learn more.'],
         ]
       } />
@@ -165,32 +165,11 @@ function MainContent() {
       <InfoSection options={{ mb: true }}title='Hobbies I enjoy' bulletPoints={
         [
           'I love playing games, whether it’s a farming simulator or a competitive team game. Although my free time is shortening every day, I make sure to have a nice balance between work and having fun.',
-          'I also regularly go to the gym. I like to make sure that I am mentally and physically healthy. Especially when I’m on the computer almost all day, I always make time to go outside or exercise.',
+          'I also regularly go to the gym. I like to make sure that I am mentally and physically healthy. Especially since I’m on the computer almost all day, I always make time to go outside or exercise.',
         ]
       } />
     </>
   );
 }
 
-export default App
-
-
-/*
-export function InfoSection({title, bulletPoints}) {
-  return (
-    <div className='absolute w-3/5 left-1/2 -translate-x-1/2 mt-40'>
-      <p className='text-light-neon-green'>{title}</p>
-      <div className=''>
-        <hr className='text-mid-dark-green w-auto -mr-8 -ml-8' />
-        {bulletPoints.map((e, i) => {
-          return (
-            <p key={i} className='mt-4 text-white'>
-              {e}
-            </p>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-*/
+export default App;
