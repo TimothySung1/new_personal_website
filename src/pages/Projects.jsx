@@ -12,7 +12,7 @@ function Projects() {
           Here are some projects that I have worked on or am currently working on!
         </p>
         <p>
-          Click on the <span className="text-light-neon-green">Project Title</span> to go to its link.
+          Click on the <span className="text-light-neon-green font-bold">Project Title</span> to go to its link.
         </p>
       </div>
       <CardSection />
@@ -96,7 +96,7 @@ function Card({title, description, url, transparent, absolute}) {
   return (
     <div className={"transition-opacity duration-[350ms] lg:w-[900px] sm:w-[560px] w-[360px] lg:h-[325px] h-fit border border-white rounded-xl mx-auto py-8 px-2 sm:px-4" + (absolute ? ' absolute top-0' : '') + (transparent ? ' opacity-0 pointer-events-none': '')}>
       <div className="flex flex-row justify-center lg:block">
-        <a href={url} target="_blank" rel="noreferrer" className="lg:text-left text-center text-2xl lg:text-3xl text-light-neon-green mx-auto lg:ml-16 hover:text-neon-green/80 transition">
+        <a href={url} target="_blank" rel="noreferrer" className="lg:text-left text-center text-2xl lg:text-3xl text-light-neon-green mx-auto lg:ml-16 hover:text-neon-green/80 transition font-bold">
           {title}
         </a>
       </div>
