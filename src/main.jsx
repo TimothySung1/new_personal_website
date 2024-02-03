@@ -28,27 +28,22 @@ const router = createBrowserRouter([
         loader: redirector,
       },
       {
-        index: true,
         path: 'home',
         element: <App />,
       },
       {
-        index: true,
         path: 'about',
         element: <About />
       },
       {
-        index: true,
         path: 'projects',
         element: <Projects />
       },
       {
-        index: true,
         path: 'hobbies',
         element: <Hobbies />
       },
       {
-        index: true,
         path: 'contact-me',
         element: <ContactMe />
       }
