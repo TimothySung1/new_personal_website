@@ -38,7 +38,7 @@ function App() {
 
 function Title({setShowbgHandler, showbg}) {
   return (
-    <div className='w-[65%] lg:w-[60%] flex flex-col'>
+    <div className='w-[65%] lg:w-[60%] flex flex-col bg-gray/25 px-6 py-4 rounded-3xl'>
       <p className="text-3xl sm:text-5xl text-white mb-8 lg:text-left text-center">
       Hello<img src={waving} alt="emoji" className='h-8 sm:h-16 inline-block align-top ml-2' />, <br />
       my name is Timothy Sung. <br />
@@ -46,7 +46,7 @@ function Title({setShowbgHandler, showbg}) {
       </p>
       <hr className='mb-2 border-dark-green shadow shadow-dark-green'/>
       <hr className='ml-4 mr-4 mb-8 border-dark-green shadow shadow-dark-green'/>
-      <p className='text-neon-green self-center mb-8 text-lg sm:text-xl'>
+      <p className='text-neon-green self-center mb-4 text-lg sm:text-xl font-bold'>
         Software Developer
       </p>
       <p className='text-white/70 self-center text-base sm:text-lg text-center'>
@@ -77,7 +77,7 @@ function Picture() {
         Anything you want to talk about?
       </p>
       <Link reloadDocument to='/contact-me'>
-        <p className='font-bold text-white self-center text-center text-base sm:text-lg'>Contact me</p>
+        <p className='font-bold text-white self-center text-center text-base sm:text-lg transition hover:scale-105'>Contact me</p>
       </Link>
     </div>
   );
