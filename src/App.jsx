@@ -38,7 +38,7 @@ function App() {
 
 function Title({setShowbgHandler, showbg}) {
   return (
-    <div className='w-[65%] lg:w-[60%] flex flex-col'>
+    <div className='w-[65%] lg:w-[60%] flex flex-col bg-gray/25 px-6 py-4 rounded-3xl'>
       <p className="text-3xl sm:text-5xl text-white mb-8 lg:text-left text-center">
       Hello<img src={waving} alt="emoji" className='h-8 sm:h-16 inline-block align-top ml-2' />, <br />
       my name is Timothy Sung. <br />
@@ -46,7 +46,7 @@ function Title({setShowbgHandler, showbg}) {
       </p>
       <hr className='mb-2 border-dark-green shadow shadow-dark-green'/>
       <hr className='ml-4 mr-4 mb-8 border-dark-green shadow shadow-dark-green'/>
-      <p className='text-neon-green self-center mb-8 text-lg sm:text-xl'>
+      <p className='text-neon-green self-center mb-4 text-lg sm:text-xl font-bold'>
         Software Developer
       </p>
       <p className='text-white/70 self-center text-base sm:text-lg text-center'>
@@ -77,7 +77,7 @@ function Picture() {
         Anything you want to talk about?
       </p>
       <Link reloadDocument to='/contact-me'>
-        <p className='font-bold text-white self-center text-center text-base sm:text-lg'>Contact me</p>
+        <p className='font-bold text-white self-center text-center text-base sm:text-lg transition hover:scale-105'>Contact me</p>
       </Link>
     </div>
   );
@@ -107,8 +107,8 @@ function ScrollHelper() {
 
 export function BulletPoint({text}) {
   return (
-    <div className='flex flex-row mt-4 sm:ml-0 -ml-40'>
-      <div className='flex flex-col mt-1.5'>
+    <div className='flex flex-row mt-4 sm:ml-4'>
+      <div className='flex flex-col scale-[0.8]'>
         <hr className='text-white/50 rotate-35 w-4' />
         <hr className='text-white/50 -rotate-35 w-4 mt-2' />
       </div>
@@ -125,17 +125,17 @@ BulletPoint.propTypes = {
 export function InfoSection({title, bulletPoints, options}) {
   if (typeof options === 'undefined') options = {mt: false, mb: false};
   return (
-      <div className={'flex flex-row w-[95%] mx-4 sm:mx-auto lg:w-1/2 ' + (options.mt ? 'mt-60 lg:mt-32' : 'mt-40') + (options.mb ? ' mb-40' : '')}>
-        <p className='text-light-neon-green shrink-0 mr-8 text-base lg:text-xl'>{title}</p>
-        <div className='mt-4'>
-          <hr className='text-mid-dark-green w-full lg:w-auto -ml-2 -mr-2' />
-          {bulletPoints.map((e, i) => {
-            return (
-              <BulletPoint key={i} text={e} />
-            );
-          })}
-        </div>
+    <div className={'flex flex-col w-[95%] mx-4 sm:mx-auto lg:w-1/2 bg-gray bg-opacity-25 px-6 py-2 rounded-lg ' + (options.mt ? 'mt-60 lg:mt-32' : 'mt-40') + (options.mb ? ' mb-40' : '')}>
+      <div className={'flex flex-row'}>
+        <p className='text-light-neon-green shrink-0 mr-6 text-base lg:text-xl'>{title}</p>
+        <hr className='text-mid-dark-green w-full -ml-2 mt-4' />
       </div>
+      {bulletPoints.map((e, i) => {
+        return (
+          <BulletPoint key={i} text={e} />
+        );
+      })}
+    </div>
   );
 }
 

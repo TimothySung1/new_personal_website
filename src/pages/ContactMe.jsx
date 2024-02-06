@@ -110,7 +110,7 @@ function ContactForm() {
     setState(newState);
   }
   return (
-    <form onSubmit={sendEmail} className="">
+    <form onSubmit={sendEmail} className="bg-gradient-to-b from-gray to-black px-6 py-2 rounded-lg">
       <div className="mb-10 relative lg:w-[700px] h-[540px] sm:h-[410px] w-[340px] sm:w-[500px] min-w-[340px] sm:min-w-[500px] sm:block flex flex-col">
         <div className="flex flex-col items-start sm:absolute">
           <p className=" text-neon-green font-bold">Name: </p>
@@ -149,7 +149,7 @@ function ContactForm() {
 
 function Socials() {
   return (
-    <div className="lg:mt-0 mt-4 lg:fixed lg:right-10 lg:top-1/2 lg:-translate-y-1/2 h-fit py-4 lg:py-[60px] w-[260px] lg:w-fit px-2 bg-gray rounded-full border-4 border-neon-green">
+    <div className="lg:mt-0 mt-4 lg:fixed lg:right-10 lg:top-1/2 lg:-translate-y-1/2 h-fit py-4 lg:py-[30px] w-[260px] lg:w-fit bg-gray rounded-full border-4 border-neon-green">
       <div className="flex flex-row lg:flex-col justify-center items-center h-full">
         <div className="relative">
           <a href="https://www.linkedin.com/in/t-sung/" target="_blank" rel='noreferrer' className="relative z-10">
