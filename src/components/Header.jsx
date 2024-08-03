@@ -5,7 +5,8 @@ import '../styles/header.css';
 // TODO: make header fixed, but only appear if mouse goes towards the top
 
 function Header() {
-  const titles = ['Home', 'About', 'Projects', 'Hobbies', 'Contact Me'];
+  // const titles = ['Home', 'About', 'Projects', 'Hobbies', 'Contact Me'];
+  const titles = ['Home', 'About', 'Projects', 'Contact Me'];
   return (
     <div className="absolute top-2 sm:top-8 sm:w-auto w-[95%] sm:left-auto left-1/2 -translate-x-1/2 sm:translate-x-0 sm:right-4 lg:right-12 mx-2 flex flex-row flex-wrap justify-center items-center lg:block z-10">
       {titles.map((title, i) => 
@@ -45,8 +46,9 @@ HeaderButton.propTypes = {
 }
 
 function ResumeButton() {
+  const resumePath = '/TimothySungResume2024.pdf'
   return (
-    <Link to='/resume.pdf' target="_blank">
+    <Link to={resumePath} target="_blank">
       <div className="inline-block border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
         <p className="text-base sm:text-xl lg:text-2xl">Resume</p>
       </div>
