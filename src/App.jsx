@@ -10,6 +10,8 @@ import me from './assets/me1.jpg';
 
 // TODO: make info sections wider (vertically) spaced, and make text larger
 // TODO: add threejs stuff
+// TODO: make pages more responsive to screen size
+// TODO: fix bugs, e.g. rendering of bottom icons, rendering of side icons, etc.
 // for about me, when mouse hover name or gt, make particles form the words or my image (is this possible?)
 
 function App() {

@@ -6,7 +6,7 @@ function Hobbies() {
     <div>
       <Title text={'Hobbies'} />
       <p className="text-white sm:ml-32 sm:text-left text-center mx-auto">
-        Currently a work in progress. Check back later :D
+        I love playing video games, including Elden Ring, Minecraft, and Geometry Dash. 
       </p>
     </div>
   )
