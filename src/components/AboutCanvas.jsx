@@ -28,59 +28,58 @@ function Camera() {
     set({camera: ref.current});
     // ref.current.lookAt(new THREE.Vector3(0, 0.8, 0));
   }, []);
-  return <perspectiveCamera ref={ref} args={[65, size.width / size.height]} position={[0, 0, 25]} />
+  return <perspectiveCamera ref={ref} args={[65, size.width / size.height]} position={[0, 0, 8]} />
 }
 
 function IsolinePlane() {
+  const vertexCount = 63001;
   const planeGeometryRef = useRef();
   const shaderMaterialRef = useRef();
   const meshRef = useRef();
-  const Noise = useRef(ImprovedNoise())
-
-  let positions = undefined;
-  let vertexCount = undefined;
-
-  useLayoutEffect(() => {
-    positions = planeGeometryRef.current.attributes.position;
-    vertexCount = positions.count;
-    console.log(positions);
-    console.log(vertexCount);
-  })
+  const noiseData = useRef(new Float32Array(vertexCount));
+  const noiseAttributeRef = useRef();
+  const time = useRef(0);
 
   const uniforms = {
-    u_color: { value: new THREE.Color(THREE.Color.NAMES.black) }
-  }
+    u_color: { value: new THREE.Color("rgb(90, 90, 90)") },
+  };
 
-  const noiseData = new Float32Array(vertexCount);
-  for (let i = 0; i < vertexCount; i++) {
-    const noise = Noise.noise(positions.getX(i), positions.getY(i), 0);
-    noiseData[i] = noise;
-  }
-  const noiseAttribute = new THREE.BufferAttribute(noiseData, 1);
-  planeGeometryRef.current.setAttribute("a_noise_data", noiseAttribute);
+  useFrame((state, delta) => {
+    time.current += delta / 10;
+    const positions = planeGeometryRef.current.attributes.position;
+    // console.log(planeGeometryRef.current);
+    const Noise = new ImprovedNoise();
+    for (let i = 0; i < vertexCount; i++) {
+      const noise = Noise.noise(positions.getX(i), positions.getY(i), time.current);
+      noiseData.current[i] = noise;
+    }
+    // console.log(noiseData);
+    noiseAttributeRef.current.needsUpdate = true;
+    // test
+  });
+
+  // const noiseAttribute = new THREE.BufferAttribute(noiseData, 1);
+  // planeGeometryRef.current.setAttribute("a_noise_data", noiseAttribute);
 
   return (
     <mesh ref={meshRef}>
       <planeGeometry ref={planeGeometryRef} args={[25, 25, 250, 250]}>
+        <bufferAttribute ref={noiseAttributeRef} attach={"attributes-a_noise_data"} array={noiseData.current} itemSize={1}/>
       </planeGeometry>
       <shaderMaterial 
         ref={shaderMaterialRef} 
         uniforms={uniforms}
         vertexShader={`
-          varying vec3 v_pos;
           varying float v_noise_data;
           attribute float a_noise_data;
 
           void main() {
-            v_pos = position;
             v_noise_data = a_noise_data;
             gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
           }
         `}
         fragmentShader={`
-          uniform float u_time;
           uniform vec3 u_color;
-          varying vec3 v_pos;
           varying float v_noise_data;
 
           void main() {
@@ -91,6 +90,7 @@ function IsolinePlane() {
             vec3 lineCol = mix(vec3(1, 1, 0), vec3(0, 1, 1), grid);
             vec3 col = mix(lineCol, u_color, line);
             gl_FragColor = vec4(col, 1);
+            // if (v_noise_data == 0.0) gl_FragColor = vec4(1, 1, 1, 1);
           }
         `}
         onBeforeCompile={(shader, renderer) => {

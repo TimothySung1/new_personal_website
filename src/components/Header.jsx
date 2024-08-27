@@ -19,7 +19,7 @@ function Header() {
 
 function HeaderButton({text, link, index}) {
   return (
-    <div className="inline-block mr-6 lg:mr-14 align-middle lg:mt-0 mt-[6px]">
+    <div className="inline-block mr-3 lg:mr-8 align-middle lg:mt-0 mt-[6px] bg-black bg-opacity-25 px-3 rounded-lg">
       <Link reloadDocument to={link} onMouseOver={
         () => {
           document.getElementById(index + '-0').classList.toggle('hovered0');
@@ -49,8 +49,8 @@ function ResumeButton() {
   const resumePath = '/TimothySungResume2024.pdf'
   return (
     <Link to={resumePath} target="_blank">
-      <div className="inline-block border-2 border-mid-dark-green bg-dark-green px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white">
-        <p className="text-base sm:text-xl lg:text-2xl">Resume</p>
+      <div className="inline-block border-2 border-mid-dark-green bg-[#006946] px-2 py-1 hover:border-dark-green hover:bg-mid-dark-green duration-200 transition text-white rounded-lg">
+        <p className="text-base sm:text-xl lg:text-2xl font-bold">Resume</p>
       </div>
     </Link>
   )

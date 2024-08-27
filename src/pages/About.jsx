@@ -5,9 +5,9 @@ function About() {
   return (
     <>
       <AboutCanvas />
-      <div>
-        <Title text={'About me'}/>
-        <div className="text-white sm:text-left text-ellipsis text-xl w-[85%] sm:w-45% mx-auto sm:ml-32 sm:mr-auto mb-8">
+      <Title text={'About me'}/>
+      <div className="">
+        <div className="bg-black/50 text-white sm:text-left text-ellipsis text-xl w-[85%] sm:w-45% mx-auto sm:ml-32 sm:mr-auto mb-8 py-4 px-6 rounded-lg">
           <p className="mb-4">
             Hello, my name is <span className="font-bold underline">Timothy Sung</span>, and I am a student at <span className="font-bold text-[#B3A369] underline">Georgia </span> <span className="font-bold text-[#1D4769] underline">Tech</span>.
             My love for computer science stemmed from my interest in video games,
